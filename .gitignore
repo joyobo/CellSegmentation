@@ -1,0 +1,6 @@
+# notebook checkpoints
+.ipynb_checkpoints/
+
+# dataset
+Train/
+Test/
