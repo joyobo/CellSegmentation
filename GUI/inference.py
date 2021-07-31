@@ -2,7 +2,7 @@
 params: filename - string
 ** please save mask image into ./static
 returns: accuracy - int
-         predicted mask image file path - string
+         predicted mask image file name - string
 """
 def infer_image(filename):
     print("inference.py : infer_image() : gets a filename of",filename)
