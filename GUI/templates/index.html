@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<title>Hello from Flask</title>
+
+<head>
+    <style>
+        body {
+            background-color: #FFF5F5;
+            font-family: Tahoma, Verdana, sans-serif;
+        }
+
+        .main {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Cell Count</h1>
+        <title>Upload new File to get predicted number cells in the image</title>
+        <h3>Upload an image file only - .jpg or .JPG or .png</h3>
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+    </div>
+
+    <div class="main">
+        {% if filename%}
+        <h2>Results:</h2>
+        <h3>Filename: {{filename}}</h3>
+        {% endif %}
+
+        {% if acc and result%}
+        <h3>Prediction Result:</h3>
+        <p>Accuracy: {{acc}}</p>
+        <p>Image Mask:</p>
+        <img src="{{result}}" alt="image not showing" />
+        {% endif %}
+    </div>
+</body>
+
+</html>
