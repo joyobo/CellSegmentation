@@ -338,7 +338,10 @@ def get_dice_1(true, pred):
     pred[pred > 0] = 1
     inter = true * pred
     denom = true + pred
-    return 2.0 * np.sum(inter) / np.sum(denom)
+    
+    if np.sum(denom) != 0:
+        return 2.0 * np.sum(inter) / np.sum(denom)
+    return 0
 
 
 ####
