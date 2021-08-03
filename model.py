@@ -108,7 +108,7 @@ class EfficientNet_Attention_UNet(nn.Module):
     def __init__(self, model):
         super().__init__()
 
-        self.base_model = model.from_pretrained('efficientnet-b7')
+        self.base_model = model.from_pretrained('efficientnet-b0')
 
         self.layer0_1x1 = convrelu(64, 64, 1, 0)
         self.layer1_1x1 = convrelu(64, 64, 1, 0)
