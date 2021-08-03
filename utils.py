@@ -49,6 +49,7 @@ def get_fast_aji(true, pred):
 
     # caching pairwise
     for true_id in true_id_list[1:]:  # 0-th is background
+        true_id = int(true_id)
         t_mask = true_masks[true_id]
         pred_true_overlap = pred[t_mask > 0]
         pred_true_overlap_id = np.unique(pred_true_overlap)
@@ -87,6 +88,7 @@ def get_fast_aji(true, pred):
     for true_id in unpaired_true:
         overall_union += true_masks[true_id].sum()
     for pred_id in unpaired_pred:
+        pred_id = int(pred_id)
         overall_union += pred_masks[pred_id].sum()
 
     aji_score = overall_inter / overall_union
@@ -133,6 +135,7 @@ def get_fast_aji_plus(true, pred):
 
     # caching pairwise
     for true_id in true_id_list[1:]:  # 0-th is background
+        true_id = int(true_id)
         t_mask = true_masks[true_id]
         pred_true_overlap = pred[t_mask > 0]
         pred_true_overlap_id = np.unique(pred_true_overlap)
@@ -171,6 +174,7 @@ def get_fast_aji_plus(true, pred):
     for true_id in unpaired_true:
         overall_union += true_masks[true_id].sum()
     for pred_id in unpaired_pred:
+        pred_id = int(pred_id)
         overall_union += pred_masks[pred_id].sum()
     #
     aji_score = overall_inter / overall_union
@@ -225,6 +229,7 @@ def get_fast_pq(true, pred, match_iou=0.5):
 
     # caching pairwise iou
     for true_id in true_id_list[1:]:  # 0-th is background
+        true_id = int(true_id)
         t_mask = true_masks[true_id]
         pred_true_overlap = pred[t_mask > 0]
         pred_true_overlap_id = np.unique(pred_true_overlap)
@@ -301,6 +306,7 @@ def get_fast_dice_2(true, pred):
         pred_masks.append(p_mask)
 
     for true_idx in range(1, len(true_id)):
+        true_idx = int(true_idx)
         t_mask = true_masks[true_idx]
         pred_true_overlap = pred[t_mask > 0]
         pred_true_overlap_id = np.unique(pred_true_overlap)
@@ -316,8 +322,10 @@ def get_fast_dice_2(true, pred):
             inter = (t_mask * p_mask).sum()
             overall_total += total
             overall_inter += inter
-
-    return 2 * overall_inter / overall_total
+            
+    if overall_total != 0:
+        return 2 * overall_inter / overall_total
+    return 0
 
 
 #####--------------------------As pseudocode
