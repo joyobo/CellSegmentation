@@ -37,3 +37,6 @@ def upload_file():
             print("app.py : upload_file() : returns a output image path",result_path)
             return render_template("index.html", filename=filename, acc=acc,result=result_path)
     return render_template("index.html")
+
+if __name__ == '__main__':
+    app.run(debug=True)
