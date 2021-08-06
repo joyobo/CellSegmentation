@@ -57,8 +57,6 @@ class ResNet_Attention_UNet(nn.Module):
         self.conv_original_size2 = convrelu(64 + 128, 64, 3, 1)
 
         self.conv_last = nn.Conv2d(64, 5, 1)
-#         self.fc1=nn.Linear(512, 128)
-#         self.fc2=nn.Linear(128,4)
 
     def forward(self, input):
         x_original = self.conv_original_size0(input)
@@ -104,8 +102,6 @@ class ResNet_Attention_UNet(nn.Module):
         x = self.conv_original_size2(x)
 
         out = self.conv_last(x)
-#         x = self.fc1(x)
-#         out=self.fc2(x)
         return out
     
 class EfficientNet_Attention_UNet(nn.Module):
