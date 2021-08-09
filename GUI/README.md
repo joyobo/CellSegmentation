@@ -1,5 +1,5 @@
 ## Prerequisite
-`python` version >= 3.7
+`python` version >= 3.7\
 `pip install --upgrade pip`
 
 ## Run User Interface (UI): 
