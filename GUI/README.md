@@ -9,3 +9,11 @@ c. Install the necessary libraries:
 
 2. Run the application using:   
    `python app.py`
+   
+## Using the UI
+1. Go to http://127.0.0.1:5000/. 
+2. Click Choose File and select the histology image file (in .png format) from your file explorer.
+3. Click Upload. 
+4. Similarly, click Choose File and select the corresponding label file (in .mat format, with the ground truth label stored as key ‘type_map’) from your file explorer.
+5. Click Upload.
+6. See the resultant mask and accuracy under the Results section.
