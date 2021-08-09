@@ -13,6 +13,24 @@
             margin: 10px;
             padding: 10px;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
     </style>
 </head>
 
@@ -20,9 +38,12 @@
     <div class="main">
         <h1>Cell Count</h1>
         <title>Upload new File to get predicted number cells in the image</title>
-        <h3>Upload an image file only - .jpg or .JPG or .png</h3>
         <form method=post enctype=multipart/form-data>
+            <label for="files">Upload an image file only - .png</label>
             <input type=file name=file>
+            <label for="files">Upload the target labels of the image - only .mat</label>
+            <input type=file name=file>
+
             <input type=submit value=Upload>
         </form>
     </div>
@@ -35,11 +56,25 @@
 
         {% if acc and result%}
         <h3>Prediction Result:</h3>
-        <p>Accuracy: {{acc}}</p>
-        <p>Image Mask:</p>
-        <img src="{{result}}" alt="image not showing" />
+        <p>Detection Quality (DQ): {{acc[0]}}</p>
+        <p>Segmentation Quality (SQ): {{acc[1]}}</p>
+        <p>Panoptic Quality (PQ): {{acc[2]}}</p>
+        <p>Dice score: {{dice_score}}</p>
+
+        <div class="row">
+            <div class="column">
+                <p>Acutal Mask:</p>
+                <img src="{{actual}}" alt="image not showing" />
+            </div>
+            <div class="column">
+                <p>Image Mask:</p>
+                <img src="{{result}}" alt="image not showing" />
+            </div>
+        </div>
         {% endif %}
     </div>
 </body>
 
 </html>
+
+
