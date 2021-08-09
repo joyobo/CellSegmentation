@@ -13,7 +13,7 @@ While many approaches and algorithms have been explored by researchers in the fi
 
 ## Experiments -- Description of notebooks
 Following notebooks are our experiments to find the best model and our hyperparameter tuning on the best model (ResNet-18 Residual Attention U-Net) to find the best frame size, batch size and learning rate.
-1. `Training-ResNet18AttentionUNet.ipynb` :  Trained the ResNet-18 Residual Attention U-Net model with 500x500 frame size, batch size 1 and 0.001 learning rate and Hyperparameter tuned with varying frame sizes, batch sizes and learning rates
+1. `Training-ResNet18AttentionUNet.ipynb` :  Trained the ResNet-18 Residual Attention U-Net model with 500x500 frame size, batch size 1 and 0.001 learning rate and hyperparameter tuned with varying frame sizes, batch sizes and learning rates
 2. `Training-CustomAttentionUNet.ipynb` : Trained the Custom Residual Attention U-Net model with 500x500 frame size, batch size 1 and 0.001 learning rate
 3. `Training_EfficientNetAttentionUNet.ipynb` : Trained the EfficientNet-B7 Residual Attention U-Net model with 500x500 frame size, batch size 1 and 0.001 learning rate<br><br>  
 
