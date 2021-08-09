@@ -8,7 +8,7 @@ S. Graham, Q. D. Vu, S. E. A. Raza, A. Azam, Y-W. Tsang, J. T. Kwak and N. Rajpo
 ## Introduction 
 While many approaches and algorithms have been explored by researchers in the field of cell segmentation, HoVer-Net (Graham et al., 2019) has achieved state-of-art performance as compared to the other published approaches. As such, the project aims to find an alternative model that performs the best in segmenting cells from the dataset proposed by the HoVer-Net using CNN. 
 
-## Pre-processing Data Augmentation Dataset -- Description of notebook
+## Pre-processing Dataset (Data Augmentation) -- Description of notebook
 `Five Crop.ipynb` crops the input image and its corresponding label into 5 parts -- the four corners and the center.
 
 ## Experiments -- Description of notebooks
