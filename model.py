@@ -19,10 +19,10 @@ def convrelu(in_channels, out_channels, kernel, padding):
     )
 
 class ResNet_Attention_UNet(nn.Module):
-    def __init__(self):
+    def __init__(self, pretrain):
         super().__init__()
 
-        self.base_model = models.resnet18(pretrained=True)
+        self.base_model = models.resnet18(pretrained=pretrain)
         self.base_layers = list(self.base_model.children())
 
         self.layer0 = nn.Sequential(*self.base_layers[:3]) # size=(N, 64, x.H/2, x.W/2)
@@ -224,6 +224,8 @@ class EfficientNet_Attention_UNet(nn.Module):
     
 def build_model(device, model_name, base_model = None):
     if model_name == "resnet":
-        return ResNet_Attention_UNet()
+        return ResNet_Attention_UNet(True)
     elif model_name == "efficientnet":
         return EfficientNet_Attention_UNet(base_model)
+    elif model_name == "custom":
+        return ResNet_Attention_UNet(False)
