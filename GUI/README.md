@@ -1,3 +1,6 @@
+## Prerequisite
+'python' version >= 3.7
+
 ## Run User Interface (UI): 
 1. Set-up for the UI locally.    
 a. Create a virtual environment using: <br> `python -m venv venv`   
