@@ -135,7 +135,7 @@ def infer_image(filename_image, filename_label):
 
     acutalMask = printColoredMask(actualFullTarget.numpy())
     plt.imshow(acutalMask)
-    plt.savefig("./static/acutalMask.png")
+    plt.savefig("./static/actualMask.png")
     
     actualFullTarget = torch.unsqueeze(actualFullTarget, 0)
     pq_score, dice_score = evalutation(stitch, actualFullTarget)
